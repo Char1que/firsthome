@@ -1,38 +1,39 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { useEffect, useState } from 'react';
 import './App.css';
 
 function App() {
   const welcome = 'Добро пожаловать в чат';
-  const [messageList, setMessageList] = useState (initialState: []);
-  const [text, setText] = useState (initialState: "");
-  const [author, setAuthor] = useState (initialState: "");
+  const [messageList, setMessageList] = useState ([]);
+  const [text, setText] = useState ('');
+  const [author, setAuthor] = useState ('');
   const hangleSubmit  = (event) => {
     event.preventDefault();
-    setMessageList(value: prevState => [...prevState, {
+    setMessageList(prevState => [...prevState, {
       id: giveLastID,
       text: text,
       author: author
     }])
-    setText (value: '')
-    setAuthor (value: '')
+    setText ('')
+    setAuthor ('')
   }
   const giveLastID = (array) => {
     return array.length ? array[array.length - 1].id + 1 : 0
   }
 
-  useEffect (effect: () => {
-    setTimeout (handler: () => {
-      botAnswer();
-    }, timeout: 5000)
-    }, deps:[messageList])
+  useEffect (() => {
+    setTimeout (() => {
+      botAnswer()
+    }, 2000)
+    }, [messageList])
 
   const botAnswer = () => {
-    const lastAuthor = messageList [messageList.length - 1];
+    const lastAuthor = messageList[messageList.length - 1];
     if (lastAuthor && lastAuthor.author) {
-      setMessageList(value: prevState => [
+      setMessageList(prevState => [
         ...prevState, {
           id: giveLastID(prevState),
-          text: "Сообщение от ${lastAuthor.author} отправлено"
+          text: `Сообщение от ${lastAuthor.author} отправлено`
         }
       ])
     }
@@ -44,13 +45,13 @@ function App() {
       </h1>
       <div>
         <form onSubmit={hangleSubmit}>
-          <input value={author} onChange={(event: ChangeEvent<HTMLInputElement> ) => setAuthor (event.target.value)}/>
-          <input value={text} onChange={(event: ChangeEvent<HTMLInputElement>) => setText(event.target.value)}/>
+          <input value={author} onChange={(event) => setAuthor (event.target.value)}/>
+          <input value={text} onChange={(event) => setText(event.target.value)}/>
           <button type='submit'>Отправить сообщение</button>
         </form>
         {messageList.map((message => {
         return (
-          <div>
+          <div key={message.id}>
             {message.author}
             {message.text}
           </div>
