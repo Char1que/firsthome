@@ -1,11 +1,55 @@
-.welcome {
-  text-align: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  color: red;
+.hello {
+  margin-top: 50px;
+  color: #1976d2;
 }
 
-.sending {
-  color: red;
+.enter {
+  margin-top: 50px;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.enterSwap {
+  width: 150px;
+  color: #1976d2;
+}
+
+.navigation {
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+.navigationMenu {
+  outline: none;
+  text-decoration: none;
+  background: #1976d2;
+  color: white;
+  width: 15%;
+  line-height: 3;
+  border: 1px solid transparent;
+  text-transform: uppercase;
+}
+
+.navigationMenu:last-child {
+  margin-right: 0;
+}
+
+.navigationMenu:hover {
+  color: black;
+  background: white;
+  border: 1px solid black;
 }

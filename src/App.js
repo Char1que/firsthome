@@ -1,74 +1,31 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import { useEffect, useState } from "react";
-import item from "./App.css";
-import { Button } from "@mui/material";
+import './App.css';
+import {NavLink, Route, Routes} from "react-router-dom";
+import Social from "./components/Social";
+import Works from "./components/Works";
+import NotFoundPage from "./components/NotFoundPage";
+import Chat from "./components/Chat";
+import AboutMyWork from "./components/AboutMyWork";
+import Home from "./components/Home";
 
 function App() {
-  const welcome = "Добро пожаловать в чат";
-  const [messageList, setMessageList] = useState([]);
-  const [text, setText] = useState("");
-  const [author, setAuthor] = useState("");
-  const hangleSubmit = (event) => {
-    event.preventDefault();
-    setMessageList((prevState) => [
-      ...prevState,
-      {
-        id: giveLastID,
-        text: text,
-        author: author,
-      },
-    ]);
-    setText("");
-    setAuthor("");
-  };
-  const giveLastID = (array) => {
-    return array.length ? array[array.length - 1].id + 1 : 0;
-  };
-
-  useEffect(() => {
-    setTimeout(() => {
-      botAnswer();
-    }, 2000);
-  }, [messageList]);
-
-  const botAnswer = () => {
-    const lastAuthor = messageList[messageList.length - 1];
-    if (lastAuthor && lastAuthor.author) {
-      setMessageList((prevState) => [
-        ...prevState,
-        {
-          id: giveLastID(prevState),
-          text: `Сообщение от ${lastAuthor.author} отправлено`,
-        },
-      ]);
-    }
-  };
-  return (
-    <div>
-      <h1 className={item.welcome}>{welcome}</h1>
-      <div>
-        <form onSubmit={hangleSubmit}>
-          <input
-            value={author}
-            onChange={(event) => setAuthor(event.target.value)}
-          />
-          <input
-            value={text}
-            onChange={(event) => setText(event.target.value)}
-          />
-          <Button className={item.sending} variant="outlined">Отправить сообщение</Button>
-        </form>
-        {messageList.map((message) => {
-          return (
-            <div key={message.id}>
-              {message.author}
-              {message.text}
+    return (
+        <div>
+            <div className="navigation">
+                <NavLink className="navigationMenu" to={"/home"}>Главная</NavLink>
+                <NavLink className="navigationMenu" to={"/social"}>Мои соц. сети</NavLink>
+                <NavLink className="navigationMenu" to={"/works"}>Мои работы</NavLink>
+                <NavLink className="navigationMenu" to={"/chat"}>Чат</NavLink>
             </div>
-          );
-        })}{" "}
-      </div>
-    </div>
-  );
+            <Routes >
+                    <Route path={"/home"} element={<Home/>}/>
+                    <Route  path={"/social"} element={<Social/>}/>
+                    <Route  path={"/works"} element={<Works/>}/>
+                    <Route path={"/chat"} element={<Chat/>}/>
+                    <Route path={"/aboutmywork/:id"} element={<AboutMyWork/>}/>
+                    <Route path={"*"} element={<NotFoundPage/>}/>
+            </Routes>
+        </div>
+    );
 }
-
 export default App;

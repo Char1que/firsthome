@@ -1,8 +1,44 @@
-.welcome {
-    text-align: center;
-    align-items: center;
-    color: red;
+.hello {
+    margin-top: 50px;
+    color: #1976d2;
 }
-.sending {
-    color:red;
+
+.enter {
+    margin-top: 50px;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    display: flex;
+}
+
+.enterSwap {
+    width: 150px;
+    color: #1976d2;
+}
+
+.navigation{
+    flex-wrap: wrap;
+    justify-content: space-between;
+    display: flex;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+.navigationMenu {
+    outline: none;
+    text-decoration: none;
+    background: #1976d2;
+    color: white;
+    width: 15%;
+    line-height: 3;
+    border:1px solid transparent;
+    text-transform: uppercase;
+}
+
+.navigationMenu:last-child {
+    margin-right: 0;
+}
+
+.navigationMenu:hover {
+    color:black;
+    background: white;
+    border: 1px solid black;
 }
