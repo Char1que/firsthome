@@ -4,15 +4,22 @@
 }
 
 .enter {
+    max-width: 1000px;
     margin-top: 50px;
-    flex-wrap: wrap;
     justify-content: space-between;
     display: flex;
 }
 
-.enterSwap {
-    width: 150px;
-    color: #1976d2;
+.chat {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.chatName {
+    outline: none;
+    color: black;
+    margin-right: 20px;
 }
 
 .navigation{
@@ -41,4 +48,11 @@
     color:black;
     background: white;
     border: 1px solid black;
+}
+
+.addUser {
+    margin-right: 20px;
+    margin-bottom: 50px;
+    height: 30px;
+    font-size: 20px;
 }
