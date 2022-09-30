@@ -1,6 +1,5 @@
 .hello {
     margin-top: 50px;
-    color: #1976d2;
 }
 
 .enter {
@@ -18,7 +17,6 @@
 
 .chatName {
     outline: none;
-    color: black;
     margin-right: 20px;
 }
 
@@ -40,10 +38,6 @@
     text-transform: uppercase;
 }
 
-.navigationMenu:last-child {
-    margin-right: 0;
-}
-
 .navigationMenu:hover {
     color:black;
     background: white;
@@ -56,3 +50,4 @@
     height: 30px;
     font-size: 20px;
 }
+

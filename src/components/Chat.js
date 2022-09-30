@@ -31,7 +31,7 @@ const Chat = () => {
         <div className="chat">
             {chat.map((chat) => {
                 return (<div key={chat.id}>
-                    <NavLink className="chatName" to={`/aboutmywork/${chat.id}`} key={chat.id}>
+                    <NavLink className="chatName" to={`/chat/${chat.id}`} key={chat.id}>
                         {chat.name + " "}
                         { chat.work}
                     </NavLink>
